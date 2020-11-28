@@ -1,26 +1,33 @@
-\documentclass[12pt, letterpaper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Title and the authors % %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Morse Theory}
+\author{ Miloš Vukadinović \\ Veronika Starodub \\ Nikolay Ninov} \date{\today } 
+
+\documentclass[]{article}
+\usepackage{graphicx}
+
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
-\usepackage{subcaption} 
-\usepackage{hyperref}
-\usepackage{float}
-\usepackage{url}
 \usepackage{amsthm}
-\usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage[lastexercise]{exercise}
 \usepackage{tikz}
 \usetikzlibrary{matrix}
-\graphicspath{{images/}} \newtheorem{definition}{Definition}[section] \newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{scolium}{Scolium} 
+\newtheorem{definition}{Definition}
+
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
-\newcommand{\implies}{\Rightarrow}
-\title{Morse Theory}
-\author{Veronika Starodub \\ Miloš Vukadinović \\ Nikolay Ninov} \date{\today } 
-\doublespacing
+\newcommand{\imply}{\Rightarrow}
+
+\graphicspath{{images/}} 
+
+% \doublespacing
 \begin{document} 
 \maketitle
 
@@ -31,8 +38,8 @@
  
 \tableofcontents
 \section{Introduction}
-\begin{document}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % begin N1
     \paragraph{\textbf{Morse Lemma.}}
         Suppose that the point $a \in \mathbb{R}^k$ is a nondegenerate
         critical point of the function $f$, and
@@ -161,7 +168,10 @@
      consistent with our goals, we notice that the first term is in the standard quadratic form seen
      in the Morse Lemma formulation, whereas the rest of the terms depend on local coordinates
      $x_i$ whereby $i\not=k \ (k=1)$. By induction from $k=1$ to $k=n$, we prove the Morse Lemma. $\blacksquare$
-
+% % end N1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % begin M1
 \textbf{Ex.} Show that the function $f: S^2 \to \R, f(x,y,z) = z$ is a Morse function. \\
 
 $f$ is smooth on $ S^2 $ since it extends to a smooth map on all of $\R^3$. We can map $R^3$ to $S^2$ with the stereographic projection two functions:\\
@@ -195,17 +205,22 @@ $
 	\nabla g_2(x,y,z) = 0$ iff $ (x,y,z) = (0,0,1)
 $
 We have two critical points, and now we compute the hessian at them.\\
+
 $
 	H(g_1) = \begin{bmatrix} 4 & 0 \\ 0 & 4 \end{bmatrix}
-	\implies \det(H(g_1)) = 16
-$\\
+	\imply \det(H(g_1)) = 16
+$ \\
+
 $
 	H(g_2) = \begin{bmatrix} -4 & 0 \\ 0 & -4 \end{bmatrix}
-	\implies \det(H(g_2)) =  16
-
-$\\ 
+	\imply \det(H(g_2)) =  16
+$ \\ 
 
 Both critical points are non-degenerate, therefore $f$ is a Morse function.$\blacksquare$\\
+% % end M1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % start V1
 \\
 \\
 Examples of Morse functions: \\
@@ -269,6 +284,7 @@ $\frac{\partial^2 g}{\partial^2 y}=0$\\
 Hence, Hessian will be of the form: \\
 $Hess(g(0,y_1))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|,  \forall y_1$. \\
 Therefore, all critical points of $g$ are degenerate points, moreover, values of $g$ at all critical points are equal, hence, $g(x,y)=x^3$ is not a Morse function. 
-
+% % end V1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
