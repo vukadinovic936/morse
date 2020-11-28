@@ -8,9 +8,7 @@
 \usepackage{graphicx}
 
 \usepackage[utf8]{inputenc}
-\usepackage{setspace}
-\usepackage{amsthm}
-\usepackage{amssymb}
+\usepackage{setspace} \usepackage{amsthm} \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{tikz}
 \usetikzlibrary{matrix}
@@ -286,5 +284,49 @@ $Hess(g(0,y_1))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|,  \f
 Therefore, all critical points of $g$ are degenerate points, moreover, values of $g$ at all critical points are equal, hence, $g(x,y)=x^3$ is not a Morse function. 
 % % end V1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % begin N2 
+% % end N2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% % begin M2
+Now, we explore Reeb graphs on manifolds of dimension 2, such that functions acting on them is a Morse function. In this case, we have a bijection between the critical points of $f$ and the nodes of $R(f)$ . We introduce the following definitions, to be able to see interesting properties of reeb graphs on orientable 2-manifolds
+\begin{definition}
+    Loop is a continuous function $X \to I$ where $X$ is some topological space, and $I=[0,1]$, s.t. $f(0) = f(1)$
+\end{definition}
+\begin{definition}
+    A surface is orientable if and only if any loop on it is orientable preserving.
+\end{definition}
+\begin{definition}
+    Loop is orientation-preserving if an only if there is a continuous choice of tangent frame along the loop such that the frame at the beggining is the same as the frame at the end
+\end{definition}
+For example, mobius strip is a non-orientable manifold, since if we take a normal vector accross the following loop, after one full circle it ends up in the same point but pointint to different direction.
+\begin{center}
+\includegraphics[width=.4\textwidth]{m1.png}
+\includegraphics[width=.4\textwidth]{m2.png}
+\includegraphics[width=.4\textwidth]{m3.png}
+\includegraphics[width=.4\textwidth]{m4.png}
+\end{center}
+
+\textbf{Orientable Manifolds} \\
+Our goal is to express number of loops in a Reeb graph by # of critical points. Let $n_i$ be the number of nodes with degree $i$. Orientable manifolds have 0 $n_2$ because every point is either minimum, maximum or saddle.\\
+Therefore the number of arcs is number of connections each point has, divided by two (because we count each arc twice) is $e = (n_1+3*n_3)/2$ \\ 
+number of loops is $1+e-(n_1+n_3)
+% % end M2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % begin V2
+% % end V2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{9}
+     \bibitem{s}
+         {\sc }
+         `` https://core.ac.uk/download/pdf/20670562.pdf
+\end{thebibliography}
+
+\caption{ 4 figures}
 
 \end{document}
