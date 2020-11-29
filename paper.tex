@@ -43,6 +43,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % begin N1
 \subsection{Introduction}
+
+\begin{definition}(Morse function)
+A smooth function on a manifold is a Morse function if all critical points are non-degenerate and all the critical points have distinct function values
+\end{definition}
     \paragraph{\textbf{Morse Lemma.}}
         Suppose that the point $a \in \mathbb{R}^k$ is a nondegenerate
         critical point of the function $f$, and
@@ -291,7 +295,6 @@ $Hess(g(0,y_1))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|,  \f
 Therefore, all critical points of $g$ are degenerate points, moreover, values of $g$ at all critical points are equal, hence, $g(x,y)=x^3$ is not a Morse function. 
 % % end V1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \newpage
 \section{Reeb graphs}
      \subsection{Introduction to Reeb graphs}
@@ -350,27 +353,52 @@ For example, mobius strip is a non-orientable manifold, since if we take a norma
 \end{center}
 
 \subsection{Orientable Manifolds} 
-Our goal is to express number of loops in a Reeb graph by  of critical points. Let $n_i$ be the number of nodes with degree $i$. Orientable manifolds have 0 $n_2$ because every point is either minimum, maximum or saddle.\\
+Our goal is to express the number of loops in a Reeb graph by the number of critical points. Let $n_i$ be the number of nodes with a degree $i$. Orientable manifolds have zero critical points of degree two because every point is either minimum, maximum or saddle.\\
 Therefore the number of arcs is number of connections each point has, divided by two (because we count each arc twice) is $e = (n_1+3n_3)/2$ \\ 
-number of loops is $1+e-(n_1+n_3)$
+Next, we show that the number of loops is $1+e-(n_1+n_3)$, or in more general case $l=(1+e-v)$ where v is the number of vertices, and l the number of loops
+\begin{proof}
+    For l = 1, v = 2 and e = 2 so the formula $1=1+2-2$ holds
+    \\ Assume that for l = k formula holds \\
+    l = (k+1)-loop graph is produced from k-loop graph by either drawing one additional edge between two already existing vertices, which doesn't change $l-e$, or by adding a new vertex and connecting it to two other vertices, which doesn't change $l-i+v$.\\
+    By induction, the formula holds.
+\end{proof}
+
 \begin{definition}
     Let P be a polyhedron with V vertices, E edges, and F faces. Then we define the Euler characteristic to be 
     \begin{equation}
         \chi(P) = V - E + F  
     \end{equation}
 \end{definition} 
-More generally, Euler characteristic is defined as alternating sum of Betti numbers. Last Morse inequality allow us to define $\chi$ as a set of inequalities for alternating sums of Betti numbers in terms of a corresponding alternating sum of the number of critical point $n_i$ of a Morse function of a given index.
+More generally, Euler characteristic is defined as an alternating sum of Betti numbers. Last Morse inequality allow us to define $\chi$ as a set of inequalities for alternating sums of Betti numbers in terms of a corresponding alternating sum of the number of critical point $n_i$ of a Morse function of a given index. Namely, let $n$ be the maximum index of all critical points.
+\begin{equation}
+    \sum_{i=0}^{n} 0 ^n (-1)^i n_i = \chi(P)
+\end{equation}
+\begin{definition}
+    The genus is the maximum number of pairwise disjoint simple closed curves along which we can cut while keeping the manifold in once piece.
+\end{definition}
+For orientable case we have $ g = (2 - \chi)/2$ and for non-orientable case \\ $ g = 2- \chi$ \\
+A connected orientable 2-manifold is either diffeomorphic to the sphere or the connected sum of tori. It's genus is equal to the number of connected tori in diffemorphic image of the manifold.
+
+Let's introduce some concepts that will allow us to prove the following lemma
+\begin{definition}[Homotopy]
+    A homotopy between two continuous functions $f$ and $g$ from a topological space $X$ to a topological space $Y$ is defined to be a continuous function $H: X \times [0,1] \to Y$ such that $H(x,0) = f(x)$ and $H(x,1) = g(x) \forall x \in X$
+\end{definition}
+We want to prove that a function $f$ taking a surface to it's Reeb graph is homotopic to the function $g$ taking a surface to it's Reeb graph and removing all the nodes of degree 1. A function is homotopic if an only if it preserves $\chi = v - e$. If we collapse all the nodes of degree 1 in the Reeb graph, for each node we remove 1 edge, therefore $\chi = v - e$ stays constant and $f$ and $g$ are homotopic. \\
+Similarly, we prove that a function $f$ is also homotopic to a function $h$ that merges edges across degree 2 nodes which also get eliminated in the process. Again, when we merge two edges, our total number of edges decrease by one, and we collapse the degree 2 node. Thus, $\chi = v-e$ stays the same and $f \sim g$
 \begin{lemma}
     The Reeb graph of a Morse function on a connected, orientable 2-manifold of genus g has g loops.
     \begin{proof}
-        We first suppose that Reeb graph has no loops. It has $n_1 = n_3+2$. And if we write $c_i$ for the number of critical points of index $i$ we have $n_i = c_0+c_2$ and $n_3 = c_1$. we have $\chi = c_1 - c_1 +c_2 = n_1 - n_3 = 2.$  2 is the Euler characteristic of a sphere, which has no genus. \\ 
-        Now suppose that Reeb graph has at least one loop. We can apply following two functions because they preserve homotopy type and the number of loops: collapse degree 1 nodes and merge arcs across degree 2 nodes which get eliminated in the process. For example consider the following graph:
+        We first suppose that Reeb graph has no loops. It has $n_1 = n_3+2$. And if we write $c_i$ for the number of critical points of index $i$ we have $n_i = c_0+c_2$ and $n_3 = c_1$. we have $\chi = c_1 - c_1 +c_2 = n_1 - n_3 = 2.$  Where 2 is the Euler characteristic of a sphere, which has no genus. \\ 
+        Now suppose that Reeb graph has at least one loop. We can apply following two functions because they preserve homotopy type and the number of loops: collapse degree 1 nodes and merge arcs across degree 2 nodes which get eliminated in the process. For example consider the following graph of double torus:
     \begin{center}
-    \includegraphics[width=0.4\textwidth]{homotopic_transformation.png}
+
+        \includegraphics[width=.2\textwidth]{2-tori.png}
+        \includegraphics[width=.7\textwidth]{homotopic_transformation.png}
     \end{center}
-    Let $m_3$ be the number of remaining degree 3 nodes and note that it is even because $3m_3$ is twice the number of remaining arcs. Using the Euler-Poincare Theorem for graphs we get $\chi = m_3 - 3m_3/2 = \beta_0 - \beta_1$. The graph is connected which implies that the number of loops is $\beta = m_3/2+1$. We have $c_1$ degree 3 nodes in the original Reeb graph and for each minimum and maximum we collapse one degree 1 node removing a 3 degree node in the process. Last strong Morse inequality tells us that $m_3 = c_1 - (c_0 + c_2) = -\chi = 2g - 2$. The number of loops is therefore $ \beta_1 = (2g-2)/2+1=g$
+    Let $m_3$ be the number of remaining degree 3 nodes and note that it is even because $3m_3$ is twice the number of remaining arcs. Using the Euler-Poincare Theorem for graphs we get $\chi = m_3 - 3m_3/2 = \beta_0 - \beta_1$. The graph is connected which implies that the number of loops is $\beta_1 = m_3/2+1$. We have $c_1$ degree 3 nodes in the original Reeb graph and for each minimum and maximum we collapse one degree 1 node removing a 3 degree node in the process. Last strong Morse inequality tells us that $m_3 = c_1 - (c_0 + c_2) = -\chi = 2g - 2$. The number of loops is therefore $ \beta_1 = (2g-2)/2+1=g$
     \end{proof}
 \end{lemma}
+
 % % end M2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
