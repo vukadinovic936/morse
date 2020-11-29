@@ -8,7 +8,9 @@
 \usepackage{graphicx}
 
 \usepackage[utf8]{inputenc}
-\usepackage{setspace} \usepackage{amsthm} \usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{tikz}
 \usetikzlibrary{matrix}
@@ -289,93 +291,6 @@ $Hess(g(0,y_1))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|,  \f
 Therefore, all critical points of $g$ are degenerate points, moreover, values of $g$ at all critical points are equal, hence, $g(x,y)=x^3$ is not a Morse function. 
 % % end V1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % begin N2 
-% % end N2
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-% % begin M2
-Now, we explore Reeb graphs on manifolds of dimension 2, such that functions acting on them is a Morse function. In this case, we have a bijection between the critical points of $f$ and the nodes of $R(f)$ . We introduce the following definitions, to be able to see interesting properties of reeb graphs on orientable 2-manifolds
-\begin{definition}
-    Loop is a continuous function $X \to I$ where $X$ is some topological space, and $I=[0,1]$, s.t. $f(0) = f(1)$
-\end{definition}
-\begin{definition}
-    A surface is orientable if and only if any loop on it is orientable preserving.
-\end{definition}
-\begin{definition}
-    Loop is orientation-preserving if an only if there is a continuous choice of tangent frame along the loop such that the frame at the beggining is the same as the frame at the end
-\end{definition}
-For example, mobius strip is a non-orientable manifold, since if we take a normal vector accross the following loop, after one full circle it ends up in the same point but pointint to different direction.
-\begin{center}
-\includegraphics[width=.4\textwidth]{m1.png}
-\includegraphics[width=.4\textwidth]{m2.png}
-\includegraphics[width=.4\textwidth]{m3.png}
-\includegraphics[width=.4\textwidth]{m4.png}
-\end{center}
-
-\textbf{Orientable Manifolds} \\
-Our goal is to express number of loops in a Reeb graph by # of critical points. Let $n_i$ be the number of nodes with degree $i$. Orientable manifolds have 0 $n_2$ because every point is either minimum, maximum or saddle.\\
-Therefore the number of arcs is number of connections each point has, divided by two (because we count each arc twice) is $e = (n_1+3*n_3)/2$ \\ 
-number of loops is $1+e-(n_1+n_3)
-% % end M2
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % begin V2
-% % end V2
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{thebibliography}{9}
-     \bibitem{s}
-         {\sc }
-         `` https://core.ac.uk/download/pdf/20670562.pdf
-\end{thebibliography}
-
-\caption{ 4 figures}
-
-\textbf{Non-orientable 2-manifolds without boundary}\\
-
-We will consider in this section Reeb graphs of Morse functions over non-orientable 2-manifolds with boundary. In particular, number of nodes, contours and loops in such graphs. \\
-All connected non-orientable 2-manifolds without boundary could be expressed as connected sum of  $g$ copies of projective planes $N=P\# P...\# P$, where $g$ coincides with the genus of the surface.\\
-For the further proofs we have to recall that Euler characteristic of orientable surfaces can be calculated as $\chi=2-2g$ and for non-orientable it is $\chi=2-g$. Also we have to notice that we can make a 2-sheeted cover of a non-orientable 2-manifold, where each sheet is orientable. In future we will call this $doubling$. \\
-Let's consider the process of doubling. We obtain 2-sheeted cover of $N$ (non-orientable 2-manifold) by doubling each point $x\in N$ to two points $x'$ and $x''$. We can consider them as a points lying in the neighborhood of $x$ on two opposite sides of $N$. Union of such points $x'$ and $x''$ will be space that is connected and orientable 2-manifold $M$. Due to the doubling Euler characteristic of the surface will be doubled, $\chi_M=2\chi_N$. \\
-Now we have to calculate genus of $M$. Since it is orientable:\\ $g_M=\frac{2-\chi_M}{2}=1-\frac{\chi_M}{2}=1-\chi_N=1-(2-g_N-1)=g_N-1$. \\
-Therefore, by doubling we decrease genus by 1. \\
-In the table on the fig. \ref{fig:Table} one can find Euler characteristicand genus number of basic non-orianatble manifolds. Note that $K$ is a Klein bottle, $T$ represents torrus,$S$ sphere and $P$ is a projective plane. 
-\begin{figure}[h!]
-\center{\includegraphics[scale=0.9]{char_table.png}}
-\caption{Euler characteristic and genus of some non-orientable manifolds and their doublings}
-\label{fig:Table}
-\end{figure}
-On the table fig. \ref{fig:Table} one can observe that relation of Euler characteristic and genus number of non-orientable manifolds and their doublings coincides with the dependence introduced above. \\
-Now we can move on to describing Reeb graphs of non-orientable 2-manifolds without boundary. As an example let's consider Klein bottle, its Reeb graph, and Reeb graph of its doubling surface on fig.\ref{fig:Klein}. \\
-\begin{figure}[h!]
-\center{\includegraphics[scale=0.45]{Klein_bottle.png}}
-\caption{Reeb graph of Klein bottle and its doubling}
-\label{fig:Klein}
-\end{figure}
-As we see on the fig. \ref{fig:Klein} Reeb graph of the surface drastically changes after doubling, especially number of nodes and contours.  Let's learn how do nodes of each degree change under this doubling. \\
-1-degree nodes are maxima or minima, after doubling number of these nodes is doubled and also number of contours is doubled as well. \\
-2-degree nodes exist in Reeb graphs of non-orientable surfaces, despite the fact that in orientable surfaces they could be just collapsed. It is transformed into 4-degree node after doubling. The reason is that the level set containing a critical point of index 1 is a figure-8 which may contain an orientation-reversing cycle. \\
-3-degree nodes are saddle points that just transfer into two such nodes in its doubling. \\
-One could observe the above on the fig. \ref{fig:Nodes}.  
-\begin{figure}[h!]
-\center{\includegraphics[scale=0.3]{Nodes.png}}
-\caption{Correspondence between nodes in $N$ and its doubling $M$}
-\label{fig:Nodes}
-\end{figure}
-Let $f: N \rightarrow R$ is a Morse function that induces function $f_0: M \rightarrow R$. $f_0$ is not a Morse function, since all critical points of $f$ correspond to two critical points of $f_0$, so they are not distinct. However, critical points of $f_0$ are still non-degenerate, that gives as an opportunity to consider $R(f_0)$ (Reeb graph of $f_0$) as previously. \\
-Let $e$ be number of arcs in $R(f)$, $n_{1,3}$ is number of 1-degree and 3-degree nodes of $R(f)$, and $n_2$ is number 2-degree nodes. As seen previously, number of 1,3-degree nodes and their contours are doubled in $M$. However, number of 2-degree nodes is invariant under doubling, corresponding contours are doubled. \\
-Therefore, $R(f_0)$ has $2e$ arcs and $2n_{1,3}+n_2$ nodes. Known fact that number of loops in a graph is $\beta_1 (G)=1-+e-n$, where $e$ is number of edges(arcs) and $n$ is number of nodes. \\
-After substitution we get:\\
-$1-\beta_1(R(f_0)=2n_{1,2}+n_2-2e=2-2+2n_{1,3}+2n_2+2e-n_2=2-2(1-n_{1,3}-n_2+e)-n_2=2-2\beta_1(R(f))-n_2$. \\
-Also we know that number of loops of $N$ is its genus and genus of $M$ (number of loops) is one less that one of $N$. Therefore, we can make a substitution $\beta_1(R(f_0))=g_N-1$. \\
-From the above results we get: \\
-$\beta_1(R(f))=\frac{g_N-n_2}{2}$.\\
-Since number of 2-degree nodes $n_2\geq0 $, we may obtain the following result:\\
-\textbf{Lamma ?}\\
-The Reeb graph of a Morse function over connected non-orientable 2-manifolds of genus $g$ with boundary is at most $\frac{g}{2}$.\\
 
 \newpage
 \section{Reeb graphs}
