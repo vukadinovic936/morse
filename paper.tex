@@ -8,7 +8,9 @@
 \usepackage{graphicx}
 
 \usepackage[utf8]{inputenc}
-\usepackage{setspace} \usepackage{amsthm} \usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{tikz}
 \usetikzlibrary{matrix}
@@ -21,6 +23,7 @@
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
 \newcommand{\imply}{\Rightarrow}
 
 \graphicspath{{images/}} 
@@ -35,9 +38,11 @@
 \end{figure}
  
 \tableofcontents
-\section{Introduction}
+\newpage
+\section{Morse Theory}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % begin N1
+\subsection{Introduction}
     \paragraph{\textbf{Morse Lemma.}}
         Suppose that the point $a \in \mathbb{R}^k$ is a nondegenerate
         critical point of the function $f$, and
@@ -170,6 +175,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % begin M1
+
+\subsection{Proof that$f: S^2 \to \R, f(x,y,z) = z$ is a Morse function}
 \textbf{Ex.} Show that the function $f: S^2 \to \R, f(x,y,z) = z$ is a Morse function. \\
 
 $f$ is smooth on $ S^2 $ since it extends to a smooth map on all of $\R^3$. We can map $R^3$ to $S^2$ with the stereographic projection two functions:\\
@@ -221,7 +228,7 @@ Both critical points are non-degenerate, therefore $f$ is a Morse function.$\bla
 % % start V1
 \\
 \\
-Examples of Morse functions: \\
+\subsection{Examples of Morse functions} 
 \textbf{Example 1.1}\\
 $f(x,y)=e^{xy}+x$\\
 First of all we have to find all critical points of $f$. A point $P$ is critical, when $\frac{\partial f}{\partial x}=\frac{\partial f}{\partial y}=0$ at $P$. \\
@@ -256,7 +263,7 @@ $det(Hess(f(0,0)))=\left| \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right|=-
 We observe that the determinant is nonzero, hence, the only critical point of $g(x,y)=xy$ is non-degenerate, so the function is Morse. \\
 \\
 \\
-Examples of functions that are not Morse: \\
+\subsection{Examples of non-Morse functions} 
 \textbf{Example 2.1}\\
 $f(x,y)=x^3+xY^2-x^2y-y^3$\\
 Let's follow the previous procedure: \\
@@ -284,6 +291,37 @@ $Hess(g(0,y_1))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|,  \f
 Therefore, all critical points of $g$ are degenerate points, moreover, values of $g$ at all critical points are equal, hence, $g(x,y)=x^3$ is not a Morse function. 
 % % end V1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{Reeb graphs}
+     \subsection{Introduction to Reeb graphs}
+     \paragraph{}
+      Suppose we have an equivalence relation, $\sim$, defined on a topological space $\X$. Let $\X_\sim$
+      be the set of equivalence classes and let $\phi : \X \to \X_\sim$ map each point $x$ to its equivalence class.
+
+     \paragraph{\textbf{Definition 1.2.1}}
+      Let $f: \X \to \R$ be continuous and call a component of a level set a contour. Two
+      points $x,y \in \X$ are equivalent if they belong to the same component of $f^{-1}(t)$
+      with $t=f(x)=f(y)$. The Reeb graph of $f$, denoted as $R(f)=\X_\sim$, is the quotient space 
+      defined by this equivalence relation.
+
+      By construction, the Reeb graph has a point for each contour and the connection is 
+      provided by the map $\phi:\X\to R(f)$. Letting $\pi:R(f)\to\R$ be defined such that $f(x)=\pi(\phi(x))$
+      we can construct the level set by going backward, from the real line to the Reeb graph to the 
+      topological space. Given $t\in\R$ we get $\pi^{-1}(t)$, a collection of points in $R(f)$,
+      and $\phi^{-1}(\pi^{-1}(t))$, the corresponding collection of contours that make up the level set defined by $t$.
+
+      \paragraph{Notes:}We have a continuous surjection $\phi:\X\to R(f)$ which maps components 
+      to components. Furthermore, a loop in $\X$ that maps to a loop in $R(f)$ is not contractible
+      and two loops in $\X$ that map to different loops in $R(f)$ are not homologous. It follows
+      that the number of components is preserved and the number of loops cannot increase:
+      $$
+      \beta_0(R(f))=\beta_0(\X)
+      $$
+      $$
+      \beta_1(R(f))\le\beta_1(\X)
+      $$
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % begin N2 
 % % end N2
@@ -311,8 +349,8 @@ For example, mobius strip is a non-orientable manifold, since if we take a norma
 \includegraphics[width=.4\textwidth]{m4.png}
 \end{center}
 
-\textbf{Orientable Manifolds} \\
-Our goal is to express number of loops in a Reeb graph by # of critical points. Let $n_i$ be the number of nodes with degree $i$. Orientable manifolds have 0 $n_2$ because every point is either minimum, maximum or saddle.\\
+\subsection{Orientable Manifolds} 
+Our goal is to express number of loops in a Reeb graph by  of critical points. Let $n_i$ be the number of nodes with degree $i$. Orientable manifolds have 0 $n_2$ because every point is either minimum, maximum or saddle.\\
 Therefore the number of arcs is number of connections each point has, divided by two (because we count each arc twice) is $e = (n_1+3n_3)/2$ \\ 
 number of loops is $1+e-(n_1+n_3)$
 \begin{definition}
@@ -320,7 +358,7 @@ number of loops is $1+e-(n_1+n_3)$
     \begin{equation}
         \chi(P) = V - E + F  
     \end{equation}
-\end{definition} \\
+\end{definition} 
 More generally, Euler characteristic is defined as alternating sum of Betti numbers. Last Morse inequality allow us to define $\chi$ as a set of inequalities for alternating sums of Betti numbers in terms of a corresponding alternating sum of the number of critical point $n_i$ of a Morse function of a given index.
 \begin{lemma}
     The Reeb graph of a Morse function on a connected, orientable 2-manifold of genus g has g loops.
@@ -339,15 +377,10 @@ More generally, Euler characteristic is defined as alternating sum of Betti numb
 % % begin V2
 % % end V2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{thebibliography}{9}
-     \bibitem{s}
-         {\sc }
-         `` https://core.ac.uk/download/pdf/20670562.pdf
-\end{thebibliography}
 
-\caption{ 4 figures}
+% \caption{ 4 figures}
 
-\textbf{Non-orientable 2-manifolds without boundary}\\
+\subsection{Non-orientable 2-manifolds without boundary}
 
 We will consider in this section Reeb graphs of Morse functions over non-orientable 2-manifolds with boundary. In particular, number of nodes, contours and loops in such graphs. \\
 All connected non-orientable 2-manifolds without boundary could be expressed as connected sum of  $g$ copies of projective planes $N=P\# P...\# P$, where $g$ coincides with the genus of the surface.\\
@@ -391,4 +424,9 @@ Since number of 2-degree nodes $n_2\geq0 $, we may obtain the following result:\
 The Reeb graph of a Morse function over connected non-orientable 2-manifolds of genus $g$ with boundary is at most $\frac{g}{2}$.\\
 \end{lemma}
 
+\begin{thebibliography}{9}
+     \bibitem{s}
+         {\sc }
+         `` https://core.ac.uk/download/pdf/20670562.pdf
+\end{thebibliography}
 \end{document}
