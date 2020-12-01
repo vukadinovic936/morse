@@ -53,8 +53,7 @@ A smooth function on a manifold is a Morse function if all critical points are n
         $$
             (h_{ij})= \left(  \frac{\partial^2f}{\partial x_i \partial x_j} (a) \right)
         $$
-        is the Hessian of $f$ at $a$. Then there exists a local coordinate system
-        $(x_1,\ldots,x_k)$ around $a$ such that
+        is the Hessian of $f$ at $a$. Then there exists a local coordinate system $(x_1,\ldots,x_k)$ around $a$ such that
         $$
             f=f(a)+\sum{h_{ij}x_ix_j}
         $$
@@ -452,6 +451,39 @@ Since number of 2-degree nodes $n_2\geq0 $, we may obtain the following result:\
 The Reeb graph of a Morse function over connected non-orientable 2-manifolds of genus $g$ with boundary is at most $\frac{g}{2}$.\\
 \end{lemma}
 
+\section{Applications}
+\subsection{Topological Data Analysis}
+A computational method for extracting simple descriptions of high dimensional data sets is a Mapper algorithm:
+Let $X$ be a point cloud (data set) and we have a function $f:X \to \R$.
+Assume that we have $N$ points in $X$ whose outputs are known for the function $f$.
+Also, we assume that it is possible to compute inter-point dinstances between the points in the data.
+Let $I$ be the range of the function $f$ restricted to the $N$ points and let $S$ be the covering of $I$.
+We begin by dividing $S$ into a smaller intervals $(S_i)$ which overlap.
+This gives us two parameters $l_i$ the length of $S_i$ and $p_{ij}$ the perceptange overlap between successive intervals.
+Now for each $S_i$ we find a set $X_j = \{x | f(x) \in S_j\}$ s.t. $X_j \subset X$. The set $\{X_j\}$ forms a cover of $X$, and $X \subset \cup_j X_j$.
+For each smaller set $X_j$ we find clusters $\{X_{jk}\} $.
+We treat each cluster as a vertex in our reeb graph and draw an edge between vertices whenever $X_{jk} \cap X_{lm} \neq \emptyset$ i.e. the clusters corresponding to vertices have non-empty intersection. \\
+
+
+\textbf{Ex.} Find a Reeb graph of a point cloud that has a shape of torus under the function $f(x,y,z) = z$. Approach the problem with assumption that we don't know the underlying distribution i.e. we don't know that it is a shape of torus. \\
+Consider the following picture
+\begin{center}
+\includegraphics[width=1.0\textwidth]{mapper.png}
+\end{center}
+We have a map $f:N\to \R$ where N is a set of points in shape of torus.
+We create a covering $S$ of the image $f(N)$ and we split the covering into 5 small overlaping intervals.
+Now we consider $X_i = f^{-1}(S_i)$ and apply clustering algorithm on the output of the function.
+For $X_1$, $X_2$, $X_4$ and $X_5$ there is only one cluster so we draw one vertex, but for $X_3$ we draw two.
+Now we check that following clusters overlap: $X_{11} \cap X_{21} \neq \emptyset $, $X_{21} \cap X_{31} \neq \emptyset $, $X_{21} \cap X_{32} \neq \emptyset $, $X_{31} \cap X_{41} \neq \emptyset $,$X_{32} \cap X_{41} \neq \emptyset $,$X_{32} \cap X_{41} \neq \emptyset $.So there's a connection between vertices that represent those clusters. The output is a Reeb graph. \\ 
+A famous example of application of Mapper algorithm is implemented by Nikolau, Levine and Carlsson in Topology based data analysis. They are able to identify a subgroup of breast cancers with a unique mutational profile and excellent survival.\\
+
+We have implemented the Mapper algorithm and ran it for the sk learn diabetes dataset and standford cars dataset, output are as follows:
+
+\begin{center}
+\includegraphics[width=.4\textwidth]{diabetes.png}
+\includegraphics[width=.4\textwidth]{cars.png}
+\end{center}
+Based on the diabetes data we may be able to make a difference between patients who don't need a treatmant, diabetis 1 and diabetis 2. While in the cars dataset it looks like there aren't any great differences between car features.
 \begin{thebibliography}{9}
      \bibitem{s}
          {\sc }
