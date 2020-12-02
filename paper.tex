@@ -484,6 +484,33 @@ We have implemented the Mapper algorithm and ran it for the sk learn diabetes da
 \includegraphics[width=.4\textwidth]{cars.png}
 \end{center}
 Based on the diabetes data we may be able to make a difference between patients who don't need a treatmant, diabetis 1 and diabetis 2. While in the cars dataset it looks like there aren't any great differences between car features.
+
+\textbf{Applications of Reeb Graphs in Computer Graphics}\\
+Computer graphics, in particular 3D modeling and animation, are a vast field. Building 3D models and analyzing their features are important both in entertainment (cartoons, animated films, computer games) and for scientific research (building 3D models based on photographs of a microscope for biology and medicine; building physical interactions in mechanics, astronomy, atomic physics ). There are two problems associated with 3D modeling, which are solved using Reeb graphs.\\
+
+ First of all, this is the construction of skeletons of already existing 3D models. This is important for further animation of objects. As shown above, using computer algorithms, we can construct a Reeb graph for any surface. Roughly speaking, this will be the skeleton of our figure. Previously, contour trees were used for these tasks, but this method results in a lot of artifacts, and is not applicable to more complex topological objects. With the help of Reeb graphs simplification algorithms (collapsing second-degree vertices, combining some edges), we can improve the skeleton without losing topological properties. This will optimize further work with the model fig. \ref{fig:skeleton}.
+
+\begin{figure}[h!]
+\center{\includegraphics[scale=0.3]{skeleton.png}}
+\caption{Skeleton of the model as a Reeb graph and its simplification}
+\label{fig:skeleton}
+\end{figure}
+
+The second problem of 3D modeling is to simplify mesh triangulation of models. Having a video of some object (or a photo from different angles), common algorithms easily triangulate it. However, this triangulation is often over-fitting. The most common simplification algorithm is the Quadric error method. If the vertex is at a small distance from the plane drawn through its neighbors, then the vertex is removed. Despite the simplicity of this method, it gives a miss-simplification fig. \ref{fig:QED}.\\
+\begin{figure}[h!]
+\center{\includegraphics[scale=0.6]{QEM.png}}
+\caption{Miss-simplification of QED method}
+\label{fig:QED}
+\end{figure}
+
+The new method uses Reeb graphs to simplify triangulation. This allows us to save the topological properties of the model after simplification. The idea of the algorithm is to remove those vertices whose geodesic distance to the vertices of the Reeb graph of the model is the smallest. This way we get a more accurate triangulation, with fewer edges. Thanks to the use of the Reeb graphs, all topological properties are preserved in the construction fig. \ref{fig:New_alg}.
+\begin{figure}[h!]
+\center{\includegraphics[scale=0.3]{New_alg.png}}
+\caption{Comparison of QEM method and the mew algorithm using Reeb graphs}
+\label{fig:New_alg}
+\end{figure}
+
+
 \begin{thebibliography}{9}
      \bibitem{s}
          {\sc }
