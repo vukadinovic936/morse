@@ -280,7 +280,6 @@ $\frac{\partial^2 f}{\partial^2 y}=2x-6y$\\
 Therefore, \\
 $det(Hess(f(0,0)))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|=0$.\\
 Hence, the only critical point of $f$ is degenerate, so $f$ is not a Morse function. \\
-\textbf{Example 2.2}\\
 $g(x,y)=x^3$\\
 $\frac{\partial g}{\partial x}=3x^2$\\
 $\frac{\partial g}{\partial y}=0$\\
@@ -509,7 +508,24 @@ The new method uses Reeb graphs to simplify triangulation. This allows us to sav
 \caption{Comparison of QEM method and the mew algorithm using Reeb graphs}
 \label{fig:New_alg}
 \end{figure}
+\subsection{Oceanography}
+    Reeb graphs are used in Oceanography to analyze the flows in the deep ocean. The neutral density $\gamma^n$ is a density variable that is used 
+    for describing the so called neutral density surfaces which are aligned with the neutral tangent plane. The flows in the deep ocean are believed to be aligned with the neutral
+    tangent plane.
 
+    A neutral surface is a surface that is everywhere parallel to the neutral tangent plane. It is proved that this plane and all neutral surfaces are normal to
+    the dianeutral vector:
+   $$
+    \vec{N}=\rho(\beta \nabla S-\alpha \nabla\theta)
+   $$
+
+   where $S$ is the salinity, $\theta$ is the potential temperature, $\alpha$ is the thermal expansion coefficient,
+   and $\beta$ is the saline concentration coefficient. Therefore, neutral surfaces are perpendicular to $\vec{N}$ in every point. It is proved that:
+
+   The neutral density is a function of latitude and longitude. The spatial dependence is fundamental property
+   of neutral surfaces. Since the gradients of $S$ and $\theta$ within a neutral surface are aligned, their contours are also aligned.
+   Therefore, there is a functional relationship between these variables. It is proved that the regions where
+   the function is single-valued are the regions associated with the edges of the Reeb graph of $\theta$ on the surface.
 
 \begin{thebibliography}{9}
      \bibitem{s}
