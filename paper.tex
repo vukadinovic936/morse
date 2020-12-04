@@ -12,11 +12,14 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{matrix}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{problem}{Problem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{scolium}{Scolium} 
 \newtheorem{definition}{Definition}
@@ -45,9 +48,31 @@
 \subsection{Introduction}
 
 \begin{definition}(Morse function)
-A smooth function on a manifold is a Morse function if all critical points are non-degenerate and all the critical points have distinct function values
+A smooth function on a manifold is a Morse function if 
+\begin{itemize}
+	\item all critical points are non-degenerate
+	\item the critical points have distinct function values
+\end{itemize}
 \end{definition}
-    \paragraph{\textbf{Morse Lemma.}}
+
+\begin{theorem}
+        Let $f$ be a smooth function in a neighborhood 
+    $N_x$ of $x=(x_1,\ldots,x_n)$ in $\mathbb{R}^n$. Suppose $f(0,\ldots,0)=0$. Then, 
+    there exist $n$ smooth functions $g_i,\ldots,g_n$ defined on $N_x$ such that $g_i(0,\ldots,0)=\frac{\partial f}{\partial x_i}(0,\ldots,0)$
+    for every $i$, and
+
+    $$
+        f(x_i,\ldots,x_n)=\sum_{i=1}^{n}{(x_i,\ldots,x_n)}
+    $$
+\end{theorem}
+\begin{theorem}(Inverse Function Theorem)
+        Let $f:\mathbb{R}^n\to \mathbb{R}^n$ be a smooth function on an open set $U$
+        containing $a\in\mathbb{R}^n$. Suppose that $\det J_f(a)\not = 0$.
+        \\Then there is an open set $V \subset \mathbb{R}^n$ containing $a$ and an open
+        set $W\subset \mathbb{R}^n$ containing $f(a)$ such that $f:V\to W$ is a 
+        diffeomorphism. 
+\end{theorem}
+\begin{theorem}(Morse Lemma.)
         Suppose that the point $a \in \mathbb{R}^k$ is a nondegenerate
         critical point of the function $f$, and
         $$
@@ -64,27 +89,9 @@ A smooth function on a manifold is a Morse function if all critical points are n
             f=-x_1^2-x_2^2-\ldots-x_\lambda^2+x_\lambda^2+\ldots+x_n^2+f(a)
         $$
         where $\lambda$ is the index of $f$ at $a$.
-
-    \paragraph{\textbf{Theorem 1.1}} \textit{ 
-        Let $f$ be a smooth function in a neighborhood 
-    $N_x$ of $x=(x_1,\ldots,x_n)$ in $\mathbb{R}^n$. Suppose $f(0,\ldots,0)=0$. Then, 
-    there exist $n$ smooth functions $g_i,\ldots,g_n$ defined on $N_x$ such that $g_i(0,\ldots,0)=\frac{\partial f}{\partial x_i}(0,\ldots,0)$
-    for every $i$, and
-    }
-
-    $$
-        f(x_i,\ldots,x_n)=\sum_{i=1}^{n}{(x_i,\ldots,x_n)}
-    $$
-
-    \paragraph{\textbf{Theorem 1.2}} \textit{ (Inverse Function Theorem)
-        Let $f:\mathbb{R}^n\to \mathbb{R}^n$ be a smooth function on an open set $U$
-        containing $a\in\mathbb{R}^n$. Suppose that $\det J_f(a)\not = 0$.
-        \\Then there is an open set $V \subset \mathbb{R}^n$ containing $a$ and an open
-        set $W\subset \mathbb{R}^n$ containing $f(a)$ such that $f:V\to W$ is a 
-        diffeomorphism.
-    }
-
-    \paragraph{\textbf{Proof.}} Let $p_0$ be a nondegenerate critical point of the function
+\end{theorem}
+\begin{proof}
+     Let $p_0$ be a nondegenerate critical point of the function
      $f:\ M \to \mathbb{R}$, where $M$ is an $n$-manifold. The degeneracy of the point
      $p_0$ on $f$ is determined independent of our choice of a local coordinate system.
      Therefore, we may assume that when we pick a local coordinate system $(x_1,\ldots,x_n)$ defined
@@ -173,38 +180,40 @@ A smooth function on a manifold is a Morse function if all critical points are n
      where the sign of the $y_1^2$ term is positive or negative, depending on the sign of $h_{11}$. Staying
      consistent with our goals, we notice that the first term is in the standard quadratic form seen
      in the Morse Lemma formulation, whereas the rest of the terms depend on local coordinates
-     $x_i$ whereby $i\not=k \ (k=1)$. By induction from $k=1$ to $k=n$, we prove the Morse Lemma. $\blacksquare$
+     $x_i$ whereby $i\not=k \ (k=1)$. By induction from $k=1$ to $k=n$, we prove the Morse Lemma.
+\end{proof}
 % % end N1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % begin M1
 
-\subsection{Proof that$f: S^2 \to \R, f(x,y,z) = z$ is a Morse function}
-\textbf{Ex.} Show that the function $f: S^2 \to \R, f(x,y,z) = z$ is a Morse function. \\
-
-$f$ is smooth on $ S^2 $ since it extends to a smooth map on all of $\R^3$. We can map $R^3$ to $S^2$ with the stereographic projection two functions:\\
-$
+\subsection{Examples of Morse functions} 
+\begin{problem}
+Show that the function $f: S^2 \to \R, f(x,y,z) = z$ is a Morse function.
+\end{problem}
+$f$ is smooth on $ S^2 $ since it extends to a smooth map on all of $\R^3$. We can map $R^3$ to $S^2$ with the stereographic projection two functions:
+\begin{equation}
 	\phi_1(x_1,x_2,x_3) = (\frac{x_1}{1-x_3}, \frac{x_2}{1-x_3} ) 
-$
+\end{equation}
 and
-$
+\begin{equation}
 	\phi_2(y_1,y_2,y_3) = (\frac{y_1}{1+y_3},\frac{y_2}{1+y_3})
-$\\
+\end{equation}
 Therefore, to get $S^2 \to R^3$ we can take $\phi_1^{-1}$ and $\phi_2^{-1}$ \\
-$
-	\phi_1^{-1}(x_1,x_2,x_3) = (\frac{2x_1}{x_1^2+x_2^2+1}, \frac{2x_2}{x_1^2+x_2^2+1}, \frac{x_1^2+x_2^2-1}{x_1^2+x_2^2+1})
-$\\
-$
-	\phi_1^{-1}(y_1,y_2,y_3) = (\frac{2y_1}{y_1^2+y_2^2+1}, \frac{2y_2}{y_1^2+y_2^2+1}, \frac{1-y_1^2+y_2^2}{y_1^2+y_2^2+1})
-$\\
+\begin{equation}
+\phi_1^{-1}(x_1,x_2,x_3) = (\frac{2x_1}{x_1^2+x_2^2+1}, \frac{2x_2}{x_1^2+x_2^2+1}, \frac{x_1^2+x_2^2-1}{x_1^2+x_2^2+1})
+\end{equation}
+\begin{equation}
+	\phi_2^{-1}(y_1,y_2,y_3) = (\frac{2y_1}{y_1^2+y_2^2+1}, \frac{2y_2}{y_1^2+y_2^2+1}, \frac{1-y_1^2+y_2^2}{y_1^2+y_2^2+1})
+\end{equation}
 Then, we take $g_1 = f \circ \phi_1^{-1}$ and $g_2 = f \circ \phi_2^{-1}$ \\
-$
+\begin{equation}
 	g_1(x,y) =  \frac{x^2+y^2-1}{x^2+y^2+1}
-$
+\end{equation}
 and
-$
+\begin{equation}
 	g_2(x,y) = \frac{1-x^2+y^2}{x^2+y^2+1}
-$ \\
+\end{equation}
 Now, we can compute jacobian of $g_1$ and $g_2$, find critical points, and check that determinant of hessian matrix is non-zero. \\
 $
 	\nabla g_1(x,y,z) = 0$ iff $(x,y,z) = (0,0,-1)
@@ -214,16 +223,14 @@ $
 $
 We have two critical points, and now we compute the hessian at them.\\
 
-$
+\begin{equation}
 	H(g_1) = \begin{bmatrix} 4 & 0 \\ 0 & 4 \end{bmatrix}
 	\imply \det(H(g_1)) = 16
-$ \\
-
-$
+\end{equation}
+\begin{equation}
 	H(g_2) = \begin{bmatrix} -4 & 0 \\ 0 & -4 \end{bmatrix}
 	\imply \det(H(g_2)) =  16
-$ \\ 
-
+\end{equation}
 Both critical points are non-degenerate, therefore $f$ is a Morse function.$\blacksquare$\\
 % % end M1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -231,9 +238,9 @@ Both critical points are non-degenerate, therefore $f$ is a Morse function.$\bla
 % % start V1
 \\
 \\
-\subsection{Examples of Morse functions} 
-\textbf{Example 1.1}\\
-$f(x,y)=e^{xy}+x$\\
+\begin{example}
+$f(x,y)=e^{xy}+x$ is a Morse function
+\end{example}
 First of all we have to find all critical points of $f$. A point $P$ is critical, when $\frac{\partial f}{\partial x}=\frac{\partial f}{\partial y}=0$ at $P$. \\
 $\frac{\partial f}{\partial x}= ye^{xy}+1=0 \\
 \frac{\partial f}{\partial y}=xe^{xy}=0$
@@ -250,8 +257,10 @@ $\frac{\partial^2 f}{\partial y^2}(0,-1)=0$\\
 Therefore, \\
 $det(Hess(f(0,-1)))=\left| \begin{array}{cc} 1 & 1 \\ 1 & 0 \end{array} \right|=-1$. \\
 Since the determinant is non-zero at the only critical point of the function, we can claim that it is a Morse function. \\
-\textbf{Example 1.2}\\
-Let's consider a function $g(x,y)=xy$ and prove that it is , indeed, a Morse function.\\
+\begin{example}
+Let's consider a function $g(x,y)=xy$ and prove that it is , indeed, a Morse function.\\ 
+
+\end{example}
 First order partial derivatives: \\
 $\frac{\partial g}{\partial x}=y$\\
 $\frac{\partial g}{\partial y}=x$\\
@@ -267,8 +276,9 @@ We observe that the determinant is nonzero, hence, the only critical point of $g
 \\
 \\
 \subsection{Examples of non-Morse functions} 
-\textbf{Example 2.1}\\
-$f(x,y)=x^3+xY^2-x^2y-y^3$\\
+\begin{example}
+$f(x,y)=x^3+xY^2-x^2y-y^3$
+\end{example}
 Let's follow the previous procedure: \\
 $\frac{\partial f}{\partial x}=3x^2+y^2-2xy=0$\\
 $\frac{\partial f}{\partial y}=2xy-x^2-3y^2=0$\\
@@ -300,12 +310,12 @@ Therefore, all critical points of $g$ are degenerate points, moreover, values of
       Suppose we have an equivalence relation, $\sim$, defined on a topological space $\X$. Let $\X_\sim$
       be the set of equivalence classes and let $\phi : \X \to \X_\sim$ map each point $x$ to its equivalence class.
 
-     \paragraph{\textbf{Definition 1.2.1}}
+\begin{definition}
       Let $f: \X \to \R$ be continuous and call a component of a level set a contour. Two
       points $x,y \in \X$ are equivalent if they belong to the same component of $f^{-1}(t)$
       with $t=f(x)=f(y)$. The Reeb graph of $f$, denoted as $R(f)=\X_\sim$, is the quotient space 
       defined by this equivalence relation.
-
+  \end{definition}
       By construction, the Reeb graph has a point for each contour and the connection is 
       provided by the map $\phi:\X\to R(f)$. Letting $\pi:R(f)\to\R$ be defined such that $f(x)=\pi(\phi(x))$
       we can construct the level set by going backward, from the real line to the Reeb graph to the 
@@ -455,7 +465,7 @@ The Reeb graph of a Morse function over connected non-orientable 2-manifolds of 
 A computational method for extracting simple descriptions of high dimensional data sets is a Mapper algorithm:
 Let $X$ be a point cloud (data set) and we have a function $f:X \to \R$.
 Assume that we have $N$ points in $X$ whose outputs are known for the function $f$.
-Also, we assume that it is possible to compute inter-point dinstances between the points in the data.
+Also, we assume that it is possible to compute inter-point distances between the points in the data.
 Let $I$ be the range of the function $f$ restricted to the $N$ points and let $S$ be the covering of $I$.
 We begin by dividing $S$ into a smaller intervals $(S_i)$ which overlap.
 This gives us two parameters $l_i$ the length of $S_i$ and $p_{ij}$ the perceptange overlap between successive intervals.
@@ -476,15 +486,16 @@ For $X_1$, $X_2$, $X_4$ and $X_5$ there is only one cluster so we draw one verte
 Now we check that following clusters overlap: $X_{11} \cap X_{21} \neq \emptyset $, $X_{21} \cap X_{31} \neq \emptyset $, $X_{21} \cap X_{32} \neq \emptyset $, $X_{31} \cap X_{41} \neq \emptyset $,$X_{32} \cap X_{41} \neq \emptyset $,$X_{32} \cap X_{41} \neq \emptyset $.So there's a connection between vertices that represent those clusters. The output is a Reeb graph. \\ 
 A famous example of application of Mapper algorithm is implemented by Nikolau, Levine and Carlsson in Topology based data analysis. They are able to identify a subgroup of breast cancers with a unique mutational profile and excellent survival.\\
 
-We have implemented the Mapper algorithm and ran it for the sk learn diabetes dataset and standford cars dataset, output are as follows:
+We have implemented the Mapper algorithm in python and ran it for the sklearn diabetes dataset and standford cars dataset, output are as follows:
 
 \begin{center}
-\includegraphics[width=.4\textwidth]{diabetes.png}
-\includegraphics[width=.4\textwidth]{cars.png}
+    diabetes 
+    \includegraphics[width=.4\textwidth]{diabetes.png} \includegraphics[width=.4\textwidth]{cars.png}
+    cars
 \end{center}
-Based on the diabetes data we may be able to make a difference between patients who don't need a treatmant, diabetis 1 and diabetis 2. While in the cars dataset it looks like there aren't any great differences between car features.
+Based on the diabetes data we may be able to make a difference between patients who don't need a treatmant, patients with diabetis type 1 and patients with diabetis type 2. While in the cars dataset it looks like there aren't any great differences between car features. (the graph is connected)
 
-\textbf{Applications of Reeb Graphs in Computer Graphics}\\
+\subsection{Computer Graphics}
 Computer graphics, in particular 3D modeling and animation, are a vast field. Building 3D models and analyzing their features are important both in entertainment (cartoons, animated films, computer games) and for scientific research (building 3D models based on photographs of a microscope for biology and medicine; building physical interactions in mechanics, astronomy, atomic physics ). There are two problems associated with 3D modeling, which are solved using Reeb graphs.\\
 
  First of all, this is the construction of skeletons of already existing 3D models. This is important for further animation of objects. As shown above, using computer algorithms, we can construct a Reeb graph for any surface. Roughly speaking, this will be the skeleton of our figure. Previously, contour trees were used for these tasks, but this method results in a lot of artifacts, and is not applicable to more complex topological objects. With the help of Reeb graphs simplification algorithms (collapsing second-degree vertices, combining some edges), we can improve the skeleton without losing topological properties. This will optimize further work with the model fig. \ref{fig:skeleton}.
@@ -528,8 +539,18 @@ The new method uses Reeb graphs to simplify triangulation. This allows us to sav
    the function is single-valued are the regions associated with the edges of the Reeb graph of $\theta$ on the surface.
 
 \begin{thebibliography}{9}
-     \bibitem{s}
-         {\sc }
-         `` https://core.ac.uk/download/pdf/20670562.pdf
+     \bibitem{MorseTheory}
+     {\sc Hua Amy}
+       An introductory treatment of morse theory on manifolds
+       \href{http://www.math.uchicago.edu/~may/VIGRE/VIGRE2010/REUPapers/Hua.pdf}{http://www.math.uchicago.edu/~may/VIGRE/VIGRE2010/REUPapers/Hua.pdf}
+     \bibitem{Reebgraphs}
+     {\sc Cole-McLaughlin at al.} 
+       `` Loops in Reeb Graphs of 2-Manifolds  \href{https://core.ac.uk/download/pdf/20670562.pdf}{https://core.ac.uk/download/pdf/20670562.pdf}
+     \bibitem{Mapper}
+         {\sc Singh at al. }
+          Loops in Reeb Graphs of 2-Manifolds \href{http://www.math.uchicago.edu/~may/VIGRE/VIGRE2010/REUPapers/Hua.pdf}{http://www.math.uchicago.edu/~may/VIGRE/VIGRE2010/REUPapers/Hua.pdf}
+    \bibitem{Textbook}
+        {\sc Allan Pollack and Victor Guillemin } 
+        Differential Topology
 \end{thebibliography}
 \end{document}
