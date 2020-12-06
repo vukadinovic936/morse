@@ -535,7 +535,7 @@ From the above results we get:
 \beta_1(R(f))=\frac{g_N-n_2}{2}
 \end{equation}
 
-Since number of 2-degree nodes $n_2\geq0 $, we may obtain the following result:
+Since number of 2-degree nodes $n_2\geq0 $, we may obtain the following result \cite{Reebgraphs}:
 \begin{lemma}
 The Reeb graph of a Morse function over connected non-orientable 2-manifolds of genus $g$ with boundary is at most $\frac{g}{2}$.
 \end{lemma}
@@ -578,7 +578,7 @@ Based on the diabetes data we may be able to make a difference between patients 
 \subsection{Computer Graphics}
 Computer graphics, in particular 3D modeling and animation, are a vast field. Building 3D models and analyzing their features are important both in entertainment (cartoons, animated films, computer games) and for scientific research (building 3D models based on photographs of a microscope for biology and medicine; building physical interactions in mechanics, astronomy, atomic physics ). There are two problems associated with 3D modeling, which are solved using Reeb graphs.\\
 
- First of all, this is the construction of skeletons of already existing 3D models. This is important for further animation of objects. As shown above, using computer algorithms, we can construct a Reeb graph for any surface. Roughly speaking, this will be the skeleton of our figure. Previously, contour trees were used for these tasks, but this method results in a lot of artifacts, and is not applicable to more complex topological objects. With the help of Reeb graphs simplification algorithms (collapsing second-degree vertices, combining some edges), we can improve the skeleton without losing topological properties. This will optimize further work with the model fig. \ref{fig:skeleton}.
+ First of all, this is the construction of skeletons of already existing 3D models \cite{Reeb_app}. This is important for further animation of objects. As shown above, using computer algorithms, we can construct a Reeb graph for any surface. Roughly speaking, this will be the skeleton of our figure. Previously, contour trees were used for these tasks, but this method results in a lot of artifacts, and is not applicable to more complex topological objects. With the help of Reeb graphs simplification algorithms (collapsing second-degree vertices, combining some edges), we can improve the skeleton without losing topological properties. This will optimize further work with the model fig. \ref{fig:skeleton}.
 
 \begin{figure}[h!]
 \center{\includegraphics[scale=0.3]{skeleton.png}}
@@ -586,7 +586,7 @@ Computer graphics, in particular 3D modeling and animation, are a vast field. Bu
 \label{fig:skeleton}
 \end{figure}
 
-The second problem of 3D modeling is to simplify mesh triangulation of models. Having a video of some object (or a photo from different angles), common algorithms easily triangulate it. However, this triangulation is often over-fitting. The most common simplification algorithm is the Quadric error method. If the vertex is at a small distance from the plane drawn through its neighbors, then the vertex is removed. Despite the simplicity of this method, it gives a miss-simplification fig. \ref{fig:QED}.\\
+The second problem of 3D modeling is to simplify mesh triangulation of models \cite{QEM}. Having a video of some object (or a photo from different angles), common algorithms easily triangulate it. However, this triangulation is often over-fitting. The most common simplification algorithm is the Quadric error method. If the vertex is at a small distance from the plane drawn through its neighbors, then the vertex is removed. Despite the simplicity of this method, it gives a miss-simplification fig. \ref{fig:QED}.\\
 \begin{figure}[h!]
 \center{\includegraphics[scale=0.6]{QEM.png}}
 \caption{Miss-simplification of QED method}
@@ -638,6 +638,16 @@ The new method uses Reeb graphs to simplify triangulation. This allows us to sav
     \bibitem{NeutralSurfaceTopology}
         {\sc Geoffrey J. Stanley}
         Neutral Surface Topology \href{https://web.archive.org/web/20170623111023/http://journals.ametsoc.org/doi/abs/10.1175/1520-0485%281987%29017%3C1950%3ANS%3E2.0.CO%3B2}{https://web.archive.org/web/20170623111023/http://journals.ametsoc.org/doi/abs/10.1175/1520-0485}
+	
+	        
+    \bibitem{QEM}
+        {\sc C. Ayudhya, P. Kannongchaiyos}
+        Imrovment of Quadratic Error Metric. Mesh simplificationby Reeb-graph-based topological information \href{https://d2ac50b6-3c5b-4e21-8e89-6fa914996526.filesusr.com/ugd/7e796d_ca56cc94a5d64711abe89c0d0c18e68f.pdf}{https://d2ac50b6-3c5b-4e21-8e89-6fa914996526.filesusr.com/ugd/7e796d_ca56cc94a5d64711abe89c0d0c18e68f.pdf}
+        
+ \bibitem{Reeb_app}
+        {\sc S. Biasotti}
+        Reeb graphs for shape analysis and applications
+ \href{https://core.ac.uk/download/pdf/82068011.pdf}{https://core.ac.uk/download/pdf/82068011.pdf}
 
 \end{thebibliography}
 \end{document}
