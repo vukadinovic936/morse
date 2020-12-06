@@ -34,28 +34,31 @@
 % \doublespacing
 \begin{document} 
 \maketitle
-
+\begin{abstract}
+    In this paper, we studied Morse functions and introduction to Morse theory. Morse Theory allows us to conduct calculus not only on simple manifolds (i.e. planes), but also on complicated ones as Klein Bottle. Therefore, it is obligatory to research the theory. Here we will prove Morse Lemma, give examples of Morse functions. Ideas of Morse Theory are also used for Reeb Graphs. In this work, we will introduce Reeb graphs, define their properties on orientable and non-orienable 2-manifolds. Reeb graphs are widely used in many applications as topological data analysis, computer graphics, oceanography. Main ideas of these applications will also be discussed. 
+\end{abstract}
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.50\textwidth]{cover}
 \end{figure}
- 
+
+\newpage
 \tableofcontents
 \newpage
 
-\begin{abstract}
-    In this paper, we studied Morse functions and introduction to Morse theory. Morse Theory allows us to conduct calculus not only on simple manifolds (i.e. planes), but also on complicated ones as Klein Bottle. Therefore, it is obligatory to research the theory. Here we will prove Morse Lemma, give examples of Morse functions. Ideas of Morse Theory are also used for Reeb Graphs. In this work, we will introduce Reeb graphs, define their properties on orientable and non-orienable 2-manifolds. Reeb graphs are widely used in many applications as topological data analysis, computer graphics, oceanography. Main ideas of these applications will also be discussed. 
-\end{abstract}
 
-A smooth function is always good to have. However, some critical points might have equal function values. Morse functions are such ones that don't have the latter property. 
-Sometimes we would like to analyze a function, using its level sets. A Reeb graph helps us plot the evolution of the components of a level set. Morse functions and Reeb graphs are extremely useful
-in some contexts. They have applications in topological data analysis, computer graphics, and even in oceanography.
 \section{Morse Theory}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % begin N1
 \subsection{Introduction}
 
+A smooth function is always good to have. However, some critical points might have equal function values. Morse functions are such ones that don't have the latter property. 
+Sometimes we would like to analyze a function, using its level sets. A Reeb graph helps us plot the evolution of the components of a level set. Morse functions and Reeb graphs are extremely useful
+in some contexts. They have applications in topological data analysis, computer graphics, and even in oceanography.
+\
+
 \begin{definition}(Morse function)
+
 A smooth function on a manifold is a Morse function if 
 \begin{itemize}
 	\item all critical points are non-degenerate
@@ -196,9 +199,9 @@ A smooth function on a manifold is a Morse function if
 % % begin M1
 
 \subsection{Examples of Morse functions} 
-\begin{problem}
+\begin{example}
 Show that the function $f: S^2 \to \R, f(x,y,z) = z$ is a Morse function.
-\end{problem}
+\end{example}
 $f$ is smooth on $ S^2 $ since it extends to a smooth map on all of $\R^3$. We can map $R^3$ to $S^2$ with the stereographic projection two functions:
 \begin{equation}
 	\phi_1(x_1,x_2,x_3) = (\frac{x_1}{1-x_3}, \frac{x_2}{1-x_3} ) 
@@ -472,7 +475,6 @@ Similarly, we prove that a function $f$ is also homotopic to a function $h$ that
 
 % \caption{ 4 figures}
 
-\subsection{Non-orientable 2-manifolds without boundary}
 
 \subsection{Non-orientable 2-manifolds without boundary}
 
