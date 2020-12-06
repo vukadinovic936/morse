@@ -244,70 +244,118 @@ Both critical points are non-degenerate, therefore $f$ is a Morse function.$\bla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % start V1
-\\
-\\
 \begin{example}
 $f(x,y)=e^{xy}+x$ is a Morse function
 \end{example}
-First of all we have to find all critical points of $f$. A point $P$ is critical, when $\frac{\partial f}{\partial x}=\frac{\partial f}{\partial y}=0$ at $P$. \\
-$\frac{\partial f}{\partial x}= ye^{xy}+1=0 \\
-\frac{\partial f}{\partial y}=xe^{xy}=0$
+First of all we have to find all critical points of $f$. A point $P$ is critical, when at $P$ 
+\begin{equation}
+\frac{\partial f}{\partial x}=\frac{\partial f}{\partial y}=0\;\;\;
+\frac{\partial f}{\partial x}= ye^{xy}+1=0 \;\;\;
+\frac{\partial f}{\partial y}=xe^{xy}=0
+\end{equation}
+
 After solving the system of equations we get that $x=0$, $y=-1$. Hence, the only critical point of $f$ is $(0,-1)$. Now to prove that the function is a Morse function we have to shoe that the determinant of Hessian matrix at the point $(0,-1)$ is non-zero. \\
-Partial second order derivatives are: \\
-$\frac{\partial^2 f}{\partial x^2}=y^2e^{xy}$
-$\frac{\partial^2 f}{\partial x^2}(0,-1)=1$\\
-$\frac{\partial^2 f}{\partial \partial y}=e^{xy}+yxe^{xy}$
-$\frac{\partial^2 f}{\partial \partial y}(0,-1)=1$\\
-$\frac{\partial^2 f}{\partial y \partial x}=e^{xy}+xye^{xy}$
-$\frac{\partial^2 f}{\partial y \partial x}(0,-1)=1$\\
-$\frac{\partial^2 f}{\partial y^2}=x^2e^{xy}$
-$\frac{\partial^2 f}{\partial y^2}(0,-1)=0$\\
-Therefore, \\
-$det(Hess(f(0,-1)))=\left| \begin{array}{cc} 1 & 1 \\ 1 & 0 \end{array} \right|=-1$. \\
+Partial second order derivatives are: 
+\begin{equation}
+ \frac{\partial^2 f}{\partial x^2}=y^2e^{xy}  =>
+\frac{\partial^2 f}{\partial x^2}(0,-1)=1    
+\end{equation}
+\begin{equation}
+\frac{\partial^2 f}{\partial \partial y}=e^{xy}+yxe^{xy} =>
+\frac{\partial^2 f}{\partial \partial y}(0,-1)=1  
+\end{equation}
+\begin{equation}
+\frac{\partial^2 f}{\partial y \partial x}=e^{xy}+xye^{xy} =>
+\frac{\partial^2 f}{\partial y \partial x}(0,-1)=1    
+\end{equation}
+\begin{equation}
+\frac{\partial^2 f}{\partial y^2}=x^2e^{xy}=>
+\frac{\partial^2 f}{\partial y^2}(0,-1)=0
+\end{equation}
+
+Therefore, 
+\begin{equation}
+det(Hess(f(0,-1)))=\left| \begin{array}{cc} 1 & 1 \\ 1 & 0 \end{array} \right|=-1
+\end{equation}
+
 Since the determinant is non-zero at the only critical point of the function, we can claim that it is a Morse function. \\
 \begin{example}
-Let's consider a function $g(x,y)=xy$ and prove that it is , indeed, a Morse function.\\ 
-
+Let's consider a function $g(x,y)=xy$ and prove that it is , indeed, a Morse function.
 \end{example}
-First order partial derivatives: \\
-$\frac{\partial g}{\partial x}=y$\\
-$\frac{\partial g}{\partial y}=x$\\
+First order partial derivatives: 
+\begin{equation}
+\frac{\partial g}{\partial x}=y \;\;
+\frac{\partial g}{\partial y}=x 
+\end{equation}
+
 Therefore, the only critical point of $g$ is $(0,0)$. Now we have to evaluate the determinant of Hessian matrix at this point.\\
-Second order partial derivatives: \\
-$\frac{\partial^2 g}{\partial x^2}=0$\\
-$\frac{\partial^2 g}{\partial x \partial y}=1$\\
-$\frac{\partial^2 g}{\partial y \partial x}=0$\\
-$\frac{\partial^2 g}{\partial^2 y}=1$\\
-Hence the determinant of Hessian at the critical point is: \\
-$det(Hess(f(0,0)))=\left| \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right|=-1$. \\
+Second order partial derivatives: 
+\begin{equation}
+\frac{\partial^2 g}{\partial x^2}=0 \;\;
+\frac{\partial^2 g}{\partial x \partial y}=1\;\;
+\frac{\partial^2 g}{\partial y \partial x}=0\;\;
+\frac{\partial^2 g}{\partial^2 y}=1\;\;
+\end{equation}
+\begin{equation}
+\frac{\partial^2 g}{\partial x^2}=0\;\;
+\frac{\partial^2 g}{\partial x \partial y}=1\;\;
+\frac{\partial^2 g}{\partial y \partial x}=0\;\;
+\frac{\partial^2 g}{\partial^2 y}=1
+\end{equation}
+
+Hence the determinant of Hessian at the critical point is:
+\begin{equation}
+det(Hess(f(0,0)))=\left| \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right|=-1   
+\end{equation}
+
 We observe that the determinant is nonzero, hence, the only critical point of $g(x,y)=xy$ is non-degenerate, so the function is Morse. \\
 \\
 \\
 \subsection{Examples of non-Morse functions} 
 \begin{example}
-$f(x,y)=x^3+xY^2-x^2y-y^3$
+$f(x,y)=x^3+xy^2-x^2y-y^3$
 \end{example}
-Let's follow the previous procedure: \\
-$\frac{\partial f}{\partial x}=3x^2+y^2-2xy=0$\\
-$\frac{\partial f}{\partial y}=2xy-x^2-3y^2=0$\\
-After solving the system of equations we got that the only critical point of $f$ is $(0,0)$. Now compute second order partial derivatives:\\
-$\frac{\partial^2 f}{\partial x^2}=6x-2y$\\
-$\frac{\partial^2 f}{\partial x \partial y}=2y-2x$\\
-$\frac{\partial^2 f}{\partial y \partial x}=2y-2x$\\
-$\frac{\partial^2 f}{\partial^2 y}=2x-6y$\\
-Therefore, \\
-$det(Hess(f(0,0)))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|=0$.\\
-Hence, the only critical point of $f$ is degenerate, so $f$ is not a Morse function. \\
-$g(x,y)=x^3$\\
-$\frac{\partial g}{\partial x}=3x^2$\\
-$\frac{\partial g}{\partial y}=0$\\
-Therefore, critical points are all points of the form $(0, y_1)$.\\
-$\frac{\partial^2 g}{\partial x^2}=6x$
-$\frac{\partial^2 g}{\partial x \partial y}=0$\\
-$\frac{\partial^2 g}{\partial y \partial x}=0$
-$\frac{\partial^2 g}{\partial^2 y}=0$\\
-Hence, Hessian will be of the form: \\
-$Hess(g(0,y_1))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|,  \forall y_1$. \\
+Let's follow the previous procedure: 
+\begin{equation}
+\frac{\partial f}{\partial x}=3x^2+y^2-2xy=0 \;\;
+\frac{\partial f}{\partial y}=2xy-x^2-3y^2=0    
+\end{equation}
+
+After solving the system of equations we got that the only critical point of $f$ is $(0,0)$. Now compute second order partial derivatives:
+\begin{equation}
+\frac{\partial^2 g}{\partial x^2}=0 \;\;
+\frac{\partial^2 g}{\partial x \partial y}=1 \;\;
+\frac{\partial^2 g}{\partial y \partial x}=0 \;\;
+\frac{\partial^2 g}{\partial^2 y}=1
+\end{equation}
+
+Therefore, 
+\begin{equation}
+det(Hess(f(0,0)))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|=0   
+\end{equation}
+
+Hence, the only critical point of $f$ is degenerate, so $f$ is not a Morse function. 
+\begin{example}
+$g(x,y)=x^3$ is not Morse function
+\end{example}
+\begin{equation}
+\frac{\partial g}{\partial x}=3x^2\;\;
+\frac{\partial g}{\partial y}=0
+\end{equation}
+
+Therefore, critical points are all points of the form $(0, y_1)$.
+\begin{equation}
+\frac{\partial^2 g}{\partial x^2}=6x \;\;
+\frac{\partial^2 g}{\partial x \partial y}=0 \;\;
+\frac{\partial^2 g}{\partial y \partial x}=0 \;\;
+\frac{\partial^2 g}{\partial^2 y}=0
+\end{equation}
+
+Hence, Hessian will be of the form:
+\begin{equation}
+Hess(g(0,y_1))=\left| \begin{array}{cc} 0 & 0 \\ 0 & 0 \end{array} \right|,  \forall y_1 
+\end{equation}
+
 Therefore, all critical points of $g$ are degenerate points, moreover, values of $g$ at all critical points are equal, hence, $g(x,y)=x^3$ is not a Morse function. 
 % % end V1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
